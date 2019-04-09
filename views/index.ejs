@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		fieldset {
+			max-width: 50%;
+			margin-left: 338px;
+			background: greenyellow;
+			text-align:center;
+		}
+	</style>
+</head>
+
+<body>
+	<fieldset>
+		<div id="wrapper">
+			<h1>Here are my cute Cats!</h1><br>
+			<a href='/new'><button style="background: brown;">Add Cat</button></a>
+		</div><br><br>
+
+		<% cats.forEach(function (cats) { %>
+		<a href="/show/<%= cats._id %>">
+			<h4><%= cats.name %></h4>
+		</a>
+		<p><%= cats.species %></p>
+		<p><%= cats.age %></p>
+		<a href='/edit/<%= cats._id %>'><button style="background:blue;">edit</button></a><br>
+
+		<form action='/delete/<%= cats._id %>' , method="POST">
+			<button type=submit style="background:red;">delete</button><br>
+		</form>
+		<br>
+		<% }) %>
+
+	</fieldset>
+</body>
+
+</html>
